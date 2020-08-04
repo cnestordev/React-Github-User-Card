@@ -37,8 +37,9 @@ const Info = styled.div`
 
 function User(props) {
     const { followers, location, login, bio, name, public_repos, avatar_url } = props.user
+
     return (
-        <Container>
+        <Container onClick={() => props.click(login)}>
             <Image src={avatar_url} alt="user" />
             <Info>
                 <h3>{name}</h3>
@@ -49,6 +50,12 @@ function User(props) {
             </Info>
         </Container>
     )
+}
+
+User.defaultProps = {
+    click: function () {
+        console.log("function not available for main user")
+    },
 }
 
 export default User

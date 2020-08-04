@@ -8,7 +8,7 @@ class Followers extends React.Component {
             return <h2>Loading</h2>
         }
 
-        const followerArr = this.props.followers.map(follower => <User user={follower} />)
+        const followerArr = this.props.followers.map(follower => <User key={follower.id} click={this.props.click} user={follower} />)
 
         return (
             <div>
