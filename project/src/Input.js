@@ -28,13 +28,19 @@ const Button = styled.button`
     margin: 0 1%;
 `
 
+const Error = styled.h6`
+    color: #ff5c55;
+    font-weight: 600;
+    font-size: 1rem; 
+`
+
 class Input extends React.Component {
     render() {
         return (
             <Form onSubmit={this.props.submit} autoComplete="off">
                 <InputField onChange={this.props.change} value={this.props.value} type="text" name="query" />
                 <Button>Search</Button>
-                {this.props.error ? <h6>Error: {this.props.error}</h6> : null}
+                {this.props.error && <Error>Error: {this.props.error}</Error>}
             </Form>
         )
     }
